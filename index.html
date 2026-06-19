@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MC LELE JP na Alge Club</title>
-  <meta name="description" content="MC LELE JP na Alge Club. Sábado, 20 de Junho de 2026, a partir das 22h. Garanta seu ingresso oficial pelo Sympla." />
+  <meta name="description" content="MC LELE JP na Alge Club. Sábado, 20 de Junho de 2026, a partir das 22h. Garanta seu ingresso oficial." />
   <meta property="og:title" content="MC LELE JP na Alge Club" />
   <meta property="og:description" content="Sábado, 20 de Junho de 2026, a partir das 22h. Alge Club - Santana de Parnaíba/SP." />
-  <meta property="og:image" content="assets/landing.png" />
+  <meta property="og:image" content="./assets/landing.png" />
   <meta property="og:type" content="website" />
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -19,52 +19,67 @@
     .hotspot { position: absolute; display: block; pointer-events: auto; border-radius: 14px; -webkit-tap-highlight-color: rgba(255,178,26,.25); }
     .hotspot:active { background: rgba(255,178,26,.12); }
 
+    /* Efeito sutil nos botões, sem sair do quadro */
     .pulse { overflow: hidden; }
-    .pulse::before { content: ""; position: absolute; inset: 5px; border-radius: 7px; border: 1px solid rgba(255,184,38,.75); box-shadow: 0 0 4px rgba(255,184,38,.42), inset 0 0 7px rgba(255,184,38,.20); animation: pulseGold 1.8s infinite ease-in-out; pointer-events: none; }
-    .pulse-blue::before { border-color: rgba(0,194,255,.78); box-shadow: 0 0 4px rgba(0,194,255,.48), inset 0 0 7px rgba(0,194,255,.20); animation: pulseBlue 1.8s infinite ease-in-out; }
-    .pulse-vip::before { border-color: rgba(255,210,70,.85); box-shadow: 0 0 5px rgba(255,210,70,.50), inset 0 0 8px rgba(255,210,70,.24); animation: pulseVip 1.45s infinite ease-in-out; }
-    .pulse::after { content: ""; position: absolute; top: 0; left: -55%; width: 30%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,.18), transparent); transform: skewX(-20deg); animation: shineMove 3.1s infinite; pointer-events: none; }
-    @keyframes pulseGold { 0%,100% { opacity: .50; } 50% { opacity: 1; } }
-    @keyframes pulseBlue { 0%,100% { opacity: .50; } 50% { opacity: 1; } }
-    @keyframes pulseVip { 0%,100% { opacity: .58; } 50% { opacity: 1; } }
-    @keyframes shineMove { 0% { left: -60%; opacity: 0; } 18% { opacity: .65; } 52% { left: 125%; opacity: 0; } 100% { left: 125%; opacity: 0; } }
+    .pulse::before { content:""; position:absolute; inset:5px; border-radius:7px; border:1px solid rgba(255,184,38,.75); box-shadow:0 0 4px rgba(255,184,38,.42), inset 0 0 7px rgba(255,184,38,.20); animation:pulseGold 1.8s infinite ease-in-out; pointer-events:none; }
+    .pulse-blue::before { border-color: rgba(0,194,255,.78); box-shadow: 0 0 4px rgba(0,194,255,.48), inset 0 0 7px rgba(0,194,255,.20); animation:pulseBlue 1.8s infinite ease-in-out; }
+    .pulse-vip::before { border-color: rgba(255,210,70,.85); box-shadow: 0 0 5px rgba(255,210,70,.50), inset 0 0 8px rgba(255,210,70,.24); animation:pulseVip 1.45s infinite ease-in-out; }
+    .pulse::after { content:""; position:absolute; top:0; left:-55%; width:30%; height:100%; background:linear-gradient(90deg,transparent,rgba(255,255,255,.18),transparent); transform:skewX(-20deg); animation:shineMove 3.1s infinite; pointer-events:none; }
+    @keyframes pulseGold { 0%,100%{opacity:.50;} 50%{opacity:1;} }
+    @keyframes pulseBlue { 0%,100%{opacity:.50;} 50%{opacity:1;} }
+    @keyframes pulseVip { 0%,100%{opacity:.58;} 50%{opacity:1;} }
+    @keyframes shineMove { 0%{left:-60%; opacity:0;} 18%{opacity:.65;} 52%{left:125%; opacity:0;} 100%{left:125%; opacity:0;} }
 
+    /* Botões superiores conforme ajuste fino aprovado */
     .btn-ingresso-top { left: 14%; top: 27.5%; width: 72%; height: 2.6%; }
     .btn-info-top { left: 14%; top: 30.25%; width: 72%; height: 2.90%; }
     .btn-camarote-top { left: 14%; top: 33.2%; width: 72%; height: 3%; }
-    .sympla { left: 12%; top: 36.55%; width: 76%; height: 3.8%; }
 
-    .video-overlay { position: absolute; left: 9.4%; top: 43.2%; width: 81.2%; height: 8.85%; z-index: 18; border-radius: 10px; overflow: hidden; background: #000; border: 1px solid rgba(255,174,25,.9); box-shadow: 0 0 18px rgba(255,136,0,.35), inset 0 0 18px rgba(255,174,25,.12); }
-    .video-overlay video { width: 100%; height: 100%; object-fit: cover; display: block; opacity: 1; background: #000; }
-    .video-overlay::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, transparent 70%, rgba(0,0,0,.66) 100%), radial-gradient(circle at 50% 50%, rgba(255,166,0,.06), transparent 42%); }
+    /* Área clicável do bloco de lotes */
+    .lotes-link { left: 8%; top: 37.15%; width: 84%; height: 4.0%; border-radius: 12px; }
 
-    .countdown-bg { position: absolute; left: 10.3%; top: 53.35%; width: 79.4%; height: 5.05%; z-index: 6; background: #050505; border-radius: 12px; box-shadow: inset 0 0 22px rgba(255,174,25,.18), 0 0 18px rgba(0,0,0,.9); }
-    .countdown { position: absolute; left: 11.4%; top: 53.42%; width: 77.2%; height: 4.9%; z-index: 8; display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; pointer-events: none; }
-    .count-box { display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 11px; background: linear-gradient(180deg,#0b0b0b 0%,#000 100%); border: 1px solid rgba(255,180,40,.82); box-shadow: inset 0 0 15px rgba(255,174,25,.14), 0 0 14px rgba(255,120,0,.22); }
-    .count-box strong { color: #ffb428; font-size: clamp(24px,8vw,52px); font-weight: 1000; line-height: .86; text-shadow: 0 0 8px rgba(255,180,40,.9), 0 0 20px rgba(255,120,0,.62); }
-    .count-box span { margin-top: 6px; font-size: clamp(8px,2.1vw,15px); font-weight: 900; color: #fff; text-transform: uppercase; letter-spacing: .4px; }
+    /* Vídeo real dentro da moldura da arte */
+    .video-overlay { position:absolute; left:8.9%; top:43.95%; width:82.2%; height:9.05%; z-index:18; border-radius:10px; overflow:hidden; background:#000; border:1px solid rgba(255,174,25,.9); box-shadow:0 0 18px rgba(255,136,0,.35), inset 0 0 18px rgba(255,174,25,.12); }
+    .video-overlay video { width:100%; height:100%; object-fit:cover; display:block; opacity:1; background:#000; }
+    .video-overlay::after { content:""; position:absolute; inset:0; pointer-events:none; background:linear-gradient(180deg,transparent 70%,rgba(0,0,0,.66) 100%), radial-gradient(circle at 50% 50%,rgba(255,166,0,.06),transparent 42%); }
 
-    .mapa { left: 13%; top: 75.45%; width: 74%; height: 1.45%; border-radius: 10px; }
-    .faq-1 { left: 9%; top: 78.65%; width: 82%; height: 3.25%; }
-    .faq-2 { left: 9%; top: 82.05%; width: 82%; height: 1.6%; }
-    .faq-3 { left: 9%; top: 83.85%; width: 82%; height: 1.6%; }
-    .faq-4 { left: 9%; top: 85.65%; width: 82%; height: 1.6%; }
+    /* Contador real por cima dos números da arte */
+    .countdown-bg { position:absolute; left:10.5%; top:55.65%; width:79%; height:4.75%; z-index:6; background:#050505; border-radius:12px; box-shadow:inset 0 0 22px rgba(255,174,25,.18), 0 0 18px rgba(0,0,0,.9); }
+    .countdown { position:absolute; left:11.6%; top:55.72%; width:76.8%; height:4.6%; z-index:8; display:grid; grid-template-columns:repeat(4,1fr); gap:12px; pointer-events:none; }
+    .count-box { display:flex; flex-direction:column; align-items:center; justify-content:center; border-radius:11px; background:linear-gradient(180deg,#0b0b0b 0%,#000 100%); border:1px solid rgba(255,180,40,.82); box-shadow:inset 0 0 15px rgba(255,174,25,.14), 0 0 14px rgba(255,120,0,.22); }
+    .count-box strong { color:#ffb428; font-size:clamp(24px,8vw,52px); font-weight:1000; line-height:.86; text-shadow:0 0 8px rgba(255,180,40,.9), 0 0 20px rgba(255,120,0,.62); }
+    .count-box span { margin-top:6px; font-size:clamp(8px,2.1vw,15px); font-weight:900; color:#fff; text-transform:uppercase; letter-spacing:.4px; }
 
-    .btn-comprar-final { left: 25.7%; top: 92.10%; width: 48.9%; height: 2.00%; border-radius: 9px; }
-    .btn-info-final { left: 25.39%; top: 94.00%; width: 49.3%; height: 2.3%; border-radius: 9px; }
-    .btn-camarote-final { left: 25.7%; top: 96.3%; width: 48.6%; height: 2.00%; border-radius: 9px; }
-    .whats-line { left: 30%; top: 98.1%; width: 43%; height: 1.5%; }
-    .whats-bg-icon { left: 78.5%; top: 92.8%; width: 14.5%; height: 5.2%; border-radius: 50%; }
+    /* Cards de informações */
+    .info-atracao { left: 7.5%; top: 61.1%; width: 17%; height: 5.2%; }
+    .info-lote { left: 26%; top: 61.1%; width: 17%; height: 5.2%; }
+    .info-data { left: 44.5%; top: 61.1%; width: 17%; height: 5.2%; }
+    .info-local { left: 63%; top: 61.1%; width: 17%; height: 5.2%; }
+    .info-ingressos { left: 81.5%; top: 61.1%; width: 11%; height: 5.2%; }
 
-    @media (max-width: 420px) { .countdown { gap: 7px; } }
+    /* Mapa e FAQ */
+    .mapa { left: 13%; top: 75.25%; width: 74%; height: 1.55%; border-radius: 10px; }
+    .faq-1 { left: 9%; top: 79.35%; width: 82%; height: 3.3%; }
+    .faq-2 { left: 9%; top: 83.0%; width: 82%; height: 1.6%; }
+    .faq-3 { left: 9%; top: 84.85%; width: 82%; height: 1.6%; }
+    .faq-4 { left: 9%; top: 86.7%; width: 82%; height: 1.6%; }
+
+    /* Botões finais */
+    .btn-comprar-final { left: 25.7%; top: 92.15%; width: 48.9%; height: 2.0%; border-radius: 9px; }
+    .btn-info-final { left: 25.39%; top: 94.4%; width: 49.3%; height: 2.1%; border-radius: 9px; }
+    .btn-camarote-final { left: 25.7%; top: 96.65%; width: 48.6%; height: 2.0%; border-radius: 9px; }
+    .whats-line { left: 30%; top: 98.25%; width: 43%; height: 1.5%; }
+    .whats-bg-icon { left: 78.5%; top: 92.35%; width: 14.5%; height: 5.2%; border-radius: 50%; }
+
+    @media (max-width:420px){ .countdown{ gap:7px; } }
   </style>
 </head>
 <body>
   <main class="page">
-    <img class="arte" src="assets/landing.png" alt="MC LELE JP na Alge Club" />
+    <img class="arte" src="./assets/landing.png" alt="MC LELE JP na Alge Club" />
 
     <div class="video-overlay">
-      <video src="assets/lele-jp-video.mp4" autoplay muted loop playsinline controls></video>
+      <video src="./assets/lele-jp-video.mp4" autoplay muted loop playsinline controls></video>
     </div>
 
     <div class="countdown-bg"></div>
@@ -79,12 +94,19 @@
       <a class="hotspot pulse btn-ingresso-top" href="https://www.sympla.com.br/evento/mc-lele-jp-na-alge-club/3457001" target="_blank" aria-label="Garantir meu lugar"></a>
       <a class="hotspot pulse pulse-blue btn-info-top" href="https://wa.me/5511978343014?text=Ol%C3%A1%2C%20quero%20informa%C3%A7%C3%B5es%20sobre%20o%20show%20MC%20LELE%20JP%20na%20Alge%20Club." target="_blank" aria-label="Informações e reservas"></a>
       <a class="hotspot pulse pulse-vip btn-camarote-top" href="https://wa.me/5511978343014?text=Ol%C3%A1%2C%20quero%20reservar%20camarote%20VIP%20para%20o%20show%20MC%20LELE%20JP%20na%20Alge%20Club." target="_blank" aria-label="Reserva de camarotes"></a>
-      <a class="hotspot sympla" href="https://www.sympla.com.br/evento/mc-lele-jp-na-alge-club/3457001" target="_blank" aria-label="Ingressos oficiais Sympla"></a>
+      <a class="hotspot lotes-link" href="https://www.sympla.com.br/evento/mc-lele-jp-na-alge-club/3457001" target="_blank" aria-label="3º lote disponível"></a>
+
+      <a class="hotspot info-atracao" href="https://www.sympla.com.br/evento/mc-lele-jp-na-alge-club/3457001" target="_blank" aria-label="Atração principal"></a>
+      <a class="hotspot info-lote" href="https://www.sympla.com.br/evento/mc-lele-jp-na-alge-club/3457001" target="_blank" aria-label="Lote limitado"></a>
+      <a class="hotspot info-data" href="https://www.sympla.com.br/evento/mc-lele-jp-na-alge-club/3457001" target="_blank" aria-label="Data do evento"></a>
+      <a class="hotspot info-local" href="https://www.google.com/maps/dir/?api=1&destination=Av.%20Tenente%20Marques%2C%205953%20-%20Fazendinha%20-%20Santana%20de%20Parna%C3%ADba%20-%20SP" target="_blank" aria-label="Local"></a>
+      <a class="hotspot info-ingressos" href="https://www.sympla.com.br/evento/mc-lele-jp-na-alge-club/3457001" target="_blank" aria-label="Ingressos"></a>
+
       <a class="hotspot pulse mapa" href="https://www.google.com/maps/dir/?api=1&destination=Av.%20Tenente%20Marques%2C%205953%20-%20Fazendinha%20-%20Santana%20de%20Parna%C3%ADba%20-%20SP" target="_blank" aria-label="Abrir no mapa"></a>
       <a class="hotspot faq-1" href="https://wa.me/5511978343014?text=Ol%C3%A1%2C%20quero%20informa%C3%A7%C3%B5es%20sobre%20o%20show%20MC%20LELE%20JP%20na%20Alge%20Club." target="_blank" aria-label="Onde será o show?"></a>
       <a class="hotspot faq-2" href="https://www.sympla.com.br/evento/mc-lele-jp-na-alge-club/3457001" target="_blank" aria-label="Onde compro ingressos?"></a>
       <a class="hotspot faq-3" href="https://wa.me/5511978343014?text=Ol%C3%A1%2C%20quero%20reservar%20camarote%20VIP%20para%20o%20show%20MC%20LELE%20JP%20na%20Alge%20Club." target="_blank" aria-label="Como faço reserva de camarotes?"></a>
-      <a class="hotspot faq-4" href="https://wa.me/5511978343014?text=Ol%C3%A1%2C%20quero%20informa%C3%A7%C3%B5es%20sobre%20o%20show%20MC%20LELE%20JP%20na%20Alge%20Club." target="_blank" aria-label="Existe classificação etária?"></a>
+      <a class="hotspot faq-4" href="https://wa.me/5511978343014?text=Ol%C3%A1%2C%20quero%20informa%C3%A7%C3%B5es%20sobre%20classifica%C3%A7%C3%A3o%20et%C3%A1ria%20do%20show%20MC%20LELE%20JP%20na%20Alge%20Club." target="_blank" aria-label="Existe classificação etária?"></a>
       <a class="hotspot pulse btn-comprar-final" href="https://www.sympla.com.br/evento/mc-lele-jp-na-alge-club/3457001" target="_blank" aria-label="Comprar ingresso"></a>
       <a class="hotspot pulse pulse-blue btn-info-final" href="https://wa.me/5511978343014?text=Ol%C3%A1%2C%20quero%20informa%C3%A7%C3%B5es%20sobre%20o%20show%20MC%20LELE%20JP%20na%20Alge%20Club." target="_blank" aria-label="Informações e reservas"></a>
       <a class="hotspot pulse pulse-vip btn-camarote-final" href="https://wa.me/5511978343014?text=Ol%C3%A1%2C%20quero%20reservar%20camarote%20VIP%20para%20o%20show%20MC%20LELE%20JP%20na%20Alge%20Club." target="_blank" aria-label="Reserva de camarotes"></a>
@@ -96,15 +118,10 @@
   <script>
     const targetDate = new Date("2026-06-20T22:00:00-03:00").getTime();
     function updateCountdown() {
-      const now = new Date().getTime();
+      const now = Date.now();
       const distance = targetDate - now;
-      if (distance <= 0) {
-        document.getElementById("days").textContent = "00";
-        document.getElementById("hours").textContent = "00";
-        document.getElementById("minutes").textContent = "00";
-        document.getElementById("seconds").textContent = "00";
-        return;
-      }
+      const ids = ["days", "hours", "minutes", "seconds"];
+      if (distance <= 0) { ids.forEach(id => document.getElementById(id).textContent = "00"); return; }
       const days = Math.floor(distance / (1000 * 60 * 60 * 24));
       const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
       const minutes = Math.floor((distance / (1000 * 60)) % 60);

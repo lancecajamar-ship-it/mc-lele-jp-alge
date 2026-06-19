@@ -5,18 +5,14 @@ Arquivos:
 - assets/landing.png
 - assets/lele-jp-video.mp4
 
-Como publicar grátis sem Supabase:
-1. Crie um repositório no GitHub.
-2. Envie todos os arquivos deste pacote para o repositório.
-3. No Cloudflare, vá em Workers & Pages > Pages > Create project > Connect to Git.
-4. Selecione o repositório.
-5. Framework preset: None.
-6. Build command: deixe vazio.
-7. Build output directory: deixe vazio ou coloque /.
-8. Deploy.
+Como atualizar no GitHub:
+1. Abra o repositório da landing no GitHub.
+2. Clique em Add file > Upload files.
+3. Envie o index.html novo e a pasta assets com os arquivos novos.
+4. Confirme em Commit changes.
+5. Aguarde o Cloudflare Pages publicar automaticamente.
 
-Se for usar GitHub Pages direto:
-1. Vá no repositório > Settings > Pages.
-2. Source: Deploy from branch.
-3. Branch: main / root.
-4. Save.
+Se preferir trocar manualmente:
+- substitua assets/landing.png pela imagem nova.
+- substitua assets/lele-jp-video.mp4 pelo vídeo novo.
+- mantenha exatamente os mesmos nomes dos arquivos.

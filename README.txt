@@ -1,18 +1,14 @@
-LANDING MC LELE JP - ALGE CLUB
+Landing MC LELE JP - Alge Club
 
-Arquivos:
-- index.html
-- assets/landing.png
-- assets/lele-jp-video.mp4
+Arquivos para GitHub + Cloudflare Pages.
 
-Como atualizar no GitHub:
-1. Abra o repositório da landing no GitHub.
-2. Clique em Add file > Upload files.
-3. Envie o index.html novo e a pasta assets com os arquivos novos.
-4. Confirme em Commit changes.
-5. Aguarde o Cloudflare Pages publicar automaticamente.
+Atualização incluída:
+- Nova arte com 1º lote esgotado, 2º lote esgotado e 3º lote disponível.
+- Vídeo local em assets/lele-jp-video.mp4.
+- Ajustes finos de hotspots/botões finais e mapa conforme F12.
 
-Se preferir trocar manualmente:
-- substitua assets/landing.png pela imagem nova.
-- substitua assets/lele-jp-video.mp4 pelo vídeo novo.
-- mantenha exatamente os mesmos nomes dos arquivos.
+Para atualizar:
+1. Descompacte este ZIP.
+2. No GitHub, envie/substitua index.html, README.txt e a pasta assets.
+3. Clique em Commit changes.
+4. Aguarde o Cloudflare Pages atualizar.

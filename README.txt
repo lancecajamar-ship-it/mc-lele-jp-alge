@@ -16,6 +16,3 @@ Se preferir trocar manualmente:
 - substitua assets/landing.png pela imagem nova.
 - substitua assets/lele-jp-video.mp4 pelo vídeo novo.
 - mantenha exatamente os mesmos nomes dos arquivos.
-
-
-Atualização: este pacote parte da versão aprovada anterior e altera SOMENTE .btn-comprar-final, .btn-info-final, .btn-camarote-final e .mapa. Nenhuma alteração no vídeo, arte principal, botões superiores ou demais áreas.
